@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+ <h1>v-bind实例</h1>
+ <hr>
+ <div id="app">
+     <p><img v-bind:src="imgSrc"  width="200px" alt="#"></p>
+     <p><a :href="blogUrl" target="_blank">我的博客</a></p>
+     <hr>
+     <div>
+         <h3>绑定Class</h3>
+         <div :class="className">1.绑定ClassA</div>
+         <div :class="{classA:isOK}">2.绑定ClassA并进行判断</div>
+         <div :class="[classA,classB]">3.绑定Class中的数组</div>
+         <div :class="isOk?classA:classB">4.绑定Class中的三元运算符</div> <br>
+         <div><input type="checkbox" id="isOK" v-model="isOk">
+             <label for="isOk">isOk={{isOk}}</label>
+         </div>
+     </div>
+     <hr>
+     <h3>绑定style</h3>
+     <div :style="{color:green,fontSize:font}">5.绑定style</div>
+     <div :style="styleObject">6.用对象绑定style样式</div>
+ </div>
+ <style>
+             .classA{color: red;}
+             .classB{font-size: 20px;}
+         </style>
+ <script>
+     var app = new Vue({
+         el:'#app',
+         data:{
+         imgSrc: 'https://yaxinzz.github.io/img/avatar.png',   
+         blogUrl:  'https://yaxinzz.github.io/',
+         className:'classA',
+         isOk:false,
+         classA:'classA',
+         classB:'classB',
+         green:'green',
+         font:'30px',
+         styleObject:{
+             color:'#205',
+             fontSize:'28px',
+             fontFamily:'Arial',
+             fontStyle:'italic'
+         }
+         }
+     })
+     </script>   
+</body>
+</html>

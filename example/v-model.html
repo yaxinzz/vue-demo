@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+ <h1>v-model数据绑定</h1>
+ <hr>
+ <div id="app">
+     <p>原始数据：{{message}} Hello C</p>
+     <h3>文本框</h3>
+     <p>v-model:<input type="text" v-model="message"></p>
+     <p>懒加载数据：<input type="text" v-model.lazy="message"></p>
+     <p>只加载数字数据：<input type="text" v-model.number="message"></p>
+     <p>输入去掉首尾空格：<input type="text" v-model.trim="message"></p>
+     <hr>
+     <h3>文本域</h3>
+     <textarea cols="20" rows="10" v-model="message"></textarea>
+     <hr>
+     <h3>多选按钮绑定一个值</h3>
+     <input type="checkbox" id="Isture" v-model="Isture">
+     <label for="Isture">{{Isture}}</label>
+     <hr>
+     <h3>多选按钮绑定多个值</h3>
+     <p>
+     <p>Please choose your favorite fruit:</p>    
+     <input type="checkbox" id="apple"  value="apple" v-model="fruits">
+     <label for="apple">apple</label> 
+     <input type="checkbox" id="banana" value="banana"  v-model="fruits">
+     <label for="banana">banana</label>  
+     <input type="checkbox" id="orange" value="orange"  v-model="fruits">
+     <label for="orange">orange</label> 
+     <input type="checkbox" id="grape"  value="grape" v-model="fruits">
+     <label for="grape">grape</label>
+     <p>{{fruits}}</p>
+     </p>
+     <hr>
+     <h3>单选按钮绑定数据</h3>
+     <input type="radio" id="one"  value="男" v-model="sex">
+     <label for="one">男</label> 
+     <input type="radio" id="two" value="女"  v-model="sex">
+     <label for="two">女</label> 
+     <p>你的性别是：{{sex}}</p> 
+ </div>
+ <script>
+     var app = new Vue({
+         el:'#app',
+         data:{
+             message:'Hello Vue',
+             Isture:true,
+             fruits:[],
+             sex:'男'
+         }
+     })
+     </script>   
+</body>
+</html>

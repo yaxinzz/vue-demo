@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HelloWorld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+ <h1>v-pre & v-cloak & v-once</h1>
+ <hr>
+ <div id="app">
+     <!--在模板中跳过vue的编译，直接输出原始值-->
+     <div v-pre>{{message}} 在模板中跳过vue的编译，直接输出原始值</div>
+     <div v-cloak>{{message}} 在vue渲染完指定的整个DOM后才进行显示</div>
+     <div v-once>{{message}}  在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程</div>
+     <div><input type="text" v-model="message"></div>
+     <div>{{message}}</div>
+ </div>
+ <script>
+     var app = new Vue({
+         el:'#app',
+         data:{
+             message:'Hello Vue',
+             
+         }
+     })
+     </script>   
+</body>
+</html>
